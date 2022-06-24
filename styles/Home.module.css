@@ -1,4 +1,9 @@
-.container {
+.counts {
+  margin: 12px 0;
+  color: var(--text-color-secondary);
+}
+
+/* .container {
   padding: 0 2rem;
 }
 
@@ -113,4 +118,4 @@
     width: 100%;
     flex-direction: column;
   }
-}
+} */

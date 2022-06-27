@@ -36,7 +36,7 @@
 }
 
 .details_panel {
-  background-color: #ffffff;
+  background-color: var(--background-color-light);
   box-shadow: var(--box-shadow);
 }
 .details_panel_heading {
@@ -76,6 +76,7 @@
 .details_panel_borders_label {
   color: var(--text-color-secondary);
   margin-bottom: 20px;
+  font-weight: 700;
 }
 .container {
   display: grid;
@@ -92,7 +93,6 @@
   .container_left {
     grid-column: 1 / span 4;
   }
-
   .container_right {
     grid-column: 5 / span 8;
   }

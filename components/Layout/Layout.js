@@ -1,10 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Layout.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../public/Logo.svg";
+import { Brightness2Rounded } from "@mui/icons-material";
 const Layout = ({ children, title = "World Ranks" }) => {
+  const [theme, setTheme] = useState("light");
+  useEffect(() => {
+    document.documentElement.setAttribute(
+      "data-theme",
+      localStorage.getItem("theme")
+    );
+    setTheme(localStorage.getItem("theme"));
+  }, []);
+  const switchTheme = () => {
+    if (theme === "light") {
+      saveTheme("dark");
+    } else {
+      saveTheme("light");
+    }
+  };
+
+  const saveTheme = (theme) => {
+    setTheme(theme);
+    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,6 +39,9 @@ const Layout = ({ children, title = "World Ranks" }) => {
         <Link href="/">
           <Image src={Logo} alt="logo" />
         </Link>
+        <button className={styles.themeSwitcher} onClick={switchTheme}>
+          <Brightness2Rounded />
+        </button>
       </header>
       <main className={styles.main}>{children}</main>
       {/* <footer className={styles.footer}>

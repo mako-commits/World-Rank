@@ -91,7 +91,7 @@ const Country = ({ country }) => {
             </div>
 
             <div className={styles.details_panel_borders}>
-              <div className={styles.details_panel_label}>Borders</div>
+              <div className={styles.details_panel_borders_label}>Borders</div>
               <div className={styles.details_panel_container}>
                 {borders.map(({ flag, name }) => (
                   <div

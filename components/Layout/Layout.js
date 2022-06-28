@@ -42,20 +42,19 @@ const Layout = ({ children, title = "World Ranks" }) => {
         <button className={styles.themeSwitcher} onClick={switchTheme}>
           <Brightness2Rounded />
         </button>
+        <p>
+          By{" "}
+          <a
+            href="https://mako.vercel.app"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.attribute}
+          >
+            Mako
+          </a>
+        </p>
       </header>
       <main className={styles.main}>{children}</main>
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
     </div>
   );
 };

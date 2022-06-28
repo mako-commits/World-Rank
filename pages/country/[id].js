@@ -1,6 +1,5 @@
 import Layout from "../../components/Layout/Layout";
 import styles from "./Country.module.css";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const getCountry = async (id) => {
@@ -9,7 +8,7 @@ const getCountry = async (id) => {
   return country;
 };
 const Country = ({ country }) => {
-  console.log(country);
+  // console.log(country);
   const [borders, setBorders] = useState([]);
   const [hasBorders, setHasBorders] = useState(false);
   const getBorders = async () => {
@@ -33,12 +32,6 @@ const Country = ({ country }) => {
         <div className={styles.container_left}>
           {" "}
           <div className={styles.overview_panel}>
-            {/* <Image
-            src={country.flag}
-            alt={country.name}
-            width={500}
-            height={500}
-          /> */}
             <img src={country.flag} alt={country.name}></img>
             <h1 className={styles.overview_name}>{country.name}</h1>
             <div className={styles.overview_region}>{country.region}</div>

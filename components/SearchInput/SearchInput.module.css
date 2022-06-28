@@ -1,9 +1,10 @@
 .wrapper {
   display: flex;
   align-items: center;
-  background-color: #eef3f6;
+  background-color: var(--background-color-dark);
   border-radius: 8px;
   padding-left: 16px;
+  color: var(--text-color-secondary);
 }
 
 .input {

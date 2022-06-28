@@ -32,7 +32,7 @@
 
 .overview_label {
   font-size: 14px;
-  color: #b3c5cd;
+  color: var(--text-color-secondary);
 }
 
 .details_panel {

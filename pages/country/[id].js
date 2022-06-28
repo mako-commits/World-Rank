@@ -11,11 +11,17 @@ const getCountry = async (id) => {
 const Country = ({ country }) => {
   console.log(country);
   const [borders, setBorders] = useState([]);
+  const [hasBorders, setHasBorders] = useState(false);
   const getBorders = async () => {
-    const borders = await Promise.all(
-      country.borders.map((border) => getCountry(border))
-    );
-    setBorders(borders);
+    try {
+      const borders = await Promise.all(
+        country.borders.map((border) => getCountry(border))
+      );
+      setBorders(borders);
+      setHasBorders(true);
+    } catch {
+      setHasBorders(false);
+    }
   };
   useEffect(() => {
     getBorders();
@@ -90,20 +96,24 @@ const Country = ({ country }) => {
               <div className={styles.details_panel_value}>{country.gini} %</div>
             </div>
 
-            <div className={styles.details_panel_borders}>
-              <div className={styles.details_panel_borders_label}>Borders</div>
-              <div className={styles.details_panel_container}>
-                {borders.map(({ flag, name }) => (
-                  <div
-                    className={styles.details_panel_country}
-                    key={borders.index}
-                  >
-                    <img src={flag}></img>
-                    <div className={styles.details_panel_name}>{name}</div>
-                  </div>
-                ))}
+            {hasBorders && (
+              <div className={styles.details_panel_borders}>
+                <div className={styles.details_panel_borders_label}>
+                  Borders
+                </div>
+                <div className={styles.details_panel_container}>
+                  {borders.map(({ flag, name }) => (
+                    <div
+                      className={styles.details_panel_country}
+                      key={borders.index}
+                    >
+                      <img src={flag}></img>
+                      <div className={styles.details_panel_name}>{name}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>

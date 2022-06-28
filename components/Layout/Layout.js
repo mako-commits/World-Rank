@@ -6,7 +6,7 @@ import Link from "next/link";
 import Logo from "../../public/Logo.svg";
 import { Brightness2Rounded } from "@mui/icons-material";
 const Layout = ({ children, title = "World Ranks" }) => {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   useEffect(() => {
     document.documentElement.setAttribute(
       "data-theme",
